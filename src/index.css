@@ -1,13 +1,438 @@
+/* Base styles for the site */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Comic Sans MS', 'Chalkboard', 'Marker Felt', 'Bradley Hand',
+    'Segoe Print';
+  background-color: #4c9540;
+  color: #fff;
+  line-height: 1.6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: #3c763d;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 42px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+section {
+  padding: 50px 0;
+}
+
+section h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(84, 231, 150);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #4c9540;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+section p {
+  margin-bottom: 20px;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  background-color: #3c763d;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframes for sliding animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional styles for the About section */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 1s ease-in-out;
+  /* Use slideIn animation with 1 second duration */
+}
+
+.about-text {
+  max-width: 600px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.about-image {
+  flex-shrink: 0;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styles for the Tokenomics section */
+.tokenomics-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 1s ease-in-out;
+}
+
+.tokenomics-image {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.tokenomics-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-list {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.custom-list li {
+  font-weight: bold;
+  font-size: 40px;
+  padding: 10px;
+  /* padding-right: 100px; */
+  margin-bottom: 10px;
+}
+
+.btn-secondary {
+  text-align: left;
+}
+
+.btn-secondary:hover {
+  background-color: none;
+}
+
+/* Base styles for the Roadmap section */
+#roadmap {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+}
+
+.roadmap-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.roadmap-item {
+  flex: 0 0 calc(33.333% - 20px);
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #4c9540;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.roadmap-item h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+/* Media query for tablet screens */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 15px;
+    /* Reduce container padding for smaller screens */
+  }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 32px;
+    /* Decrease font size for smaller screens */
+  }
+
+  nav ul li {
+    margin-right: 10px;
+    /* Decrease margin between navigation items */
+  }
+
+  section h2 {
+    font-size: 36px;
+    /* Decrease font size for smaller screens */
+  }
+
+  .about-content {
+    flex-direction: column;
+    /* Stack about content vertically on smaller screens */
+  }
+
+  .tokenomics-content {
+    flex-direction: column;
+    /* Stack tokenomics content vertically on smaller screens */
+  }
+}
+
+/* Media query for smaller mobile screens */
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 28px;
+    /* Further decrease font size for smaller screens */
+  }
+
+  nav ul li {
+    margin-right: 5px;
+    /* Further decrease margin between navigation items */
+  }
+
+  section h2 {
+    font-size: 24px;
+    /* Further decrease font size for smaller screens */
+  }
+}
+
+.contact-info {
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+  text-align: center;
+}
+
+.btn-buy,
+.btn-chart {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+
+.btn-chart {
+  background-color: #f44336;
+  border: none;
+}
+
+/* .logo-image {
+  flex-shrink: 0;
+} */
+
+.logo-image {
+  /* max-width: 100%; */
+  /* height: auto; */
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styling for roadmap list items */
+.roadmap-item ul {
+  padding-left: 20px;
+  /* Add left padding to the list */
+}
+
+.roadmap-item ul li {
+  list-style-type: none;
+  /* Remove default bullet points */
+  position: relative;
+  /* Position for custom bullet */
+  padding-left: 30px;
+  /* Add padding for indentation */
+  margin-bottom: 10px;
+  /* Add spacing between list items */
+}
+
+/* Custom bullet style */
+.roadmap-item ul li:before {
+  content: '';
+  /* Empty content */
+  position: absolute;
+  /* Position the bullet */
+  left: 0;
+  /* Position relative to the left edge of the list item */
+  top: 6px;
+  /* Adjust vertical alignment */
+  width: 8px;
+  /* Set width of the bullet */
+  height: 8px;
+  /* Set height of the bullet */
+  background-color: #4c9540;
+  /* Set color of the bullet */
+  border-radius: 50%;
+  /* Shape the bullet as a circle */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .roadmap-item {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .roadmap-item {
+    flex: 0 0 100%;
+  }
+}
+
+.token {
+  font-weight: bold;
+  /* font-size: 20px; */
+  color: #f5f8f4;
+  cursor: pointer;
+  /* text-decoration: underline; */
+  /* Add underline to indicate it's clickable */
+}
+
+.token:hover {
+  color: #607660;
+  /* Change color on hover for better visibility */
+}
+
+/* CSS for notification */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4c9540;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  /* Set a high z-index to ensure it appears above other elements */
+}
+
+#airdrop {
+  padding: 25px 0;
+  background-color: #4c9540; /* Green background color */
+  text-align: center;
+}
+
+#airdrop h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #150b0b;
+  /* color: #150b0b; White text color */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+#airdrop-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #150b0b; /* White text color */
+}
+
+#airdrop-form {
+  margin-bottom: 20px;
+}
+
+#airdrop-form input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+#airdrop-form button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3a7d35;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#airdrop-form button:hover {
+  background-color: #091707;
+}
+
+.airdrop-info {
+  text-align: left;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.airdrop-info p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* CSS for Countdown section */
+.countdown-container {
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-size: 22px;
+  color: #fff; /* White text color */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .countdown-container {
+    padding: 0 20px;
+  }
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  #airdrop-form-container {
+    padding: 0 20px;
+  }
 }
