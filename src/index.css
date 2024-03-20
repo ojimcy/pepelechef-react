@@ -269,7 +269,7 @@ footer {
 }
 
 .roadmap-item ul li {
-  list-style-type: "👩‍🍳";
+  list-style-type: '👩‍🍳';
   /* Remove default bullet points */
   position: relative;
   /* Position for custom bullet */
@@ -365,6 +365,11 @@ footer {
   color: #150b0b; /* White text color */
 }
 
+.form-label {
+  color: #f5f8f4;
+  margin-bottom: 5px;
+}
+
 #airdrop-form {
   margin-bottom: 20px;
 }
@@ -409,6 +414,14 @@ footer {
   margin-bottom: 10px;
 }
 
+.user-info {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
 /* CSS for Countdown section */
 .countdown-container {
   margin-bottom: 20px;
@@ -426,6 +439,18 @@ footer {
 
 .menu-toggle {
   display: none;
+}
+
+.claim {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  letter-spacing: 0.09em;
+  display: inline-block;
+  padding: 0 15px;
+  margin-bottom: 25px;
 }
 
 /* Define mobile viewport */

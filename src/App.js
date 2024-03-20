@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/home" element={<Landing />} />
+        <Route exact path="/" element={<Landing />} />
       </Routes>
     </Router>
   );
