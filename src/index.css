@@ -367,7 +367,7 @@ footer {
 
 .form-label {
   color: #f5f8f4;
-  margin-bottom: 5px;
+  margin-top: 25px;
 }
 
 #airdrop-form {
@@ -380,7 +380,6 @@ footer {
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  margin-bottom: 20px;
 }
 
 #airdrop-form button {
@@ -394,10 +393,15 @@ footer {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
 #airdrop-form button:hover {
   background-color: #091707;
+}
+
+#airdrop-form .errorMsg {
+  color: #81120a;
 }
 
 .airdrop-info {

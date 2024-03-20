@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 const api = 'https://g3ek59wvea.execute-api.us-east-1.amazonaws.com/v1';
-const url = 'http://localhost:3001';
+const url = 'https://pepelechef.fun';
 
 function Airdrop() {
   const {
@@ -92,7 +92,7 @@ function Airdrop() {
         <div id="airdrop-form-container">
           {userData ? (
             <div className="claim">
-              Claim $PCHEF NOW - (50,000 PCHEF / referral ){' '}
+              Claim $PCHEF NOW - (10,000 $PCHEF / referral ){' '}
             </div>
           ) : (
             <>
@@ -123,7 +123,9 @@ function Airdrop() {
                     {...register('twitterUsername', { required: true })}
                   />
                   {errors.twitterUsername && (
-                    <span>This field is required</span>
+                    <span className="errorMsg">
+                      Twitter username is required
+                    </span>
                   )}
                 </div>
                 <div className="form-group">
@@ -146,7 +148,9 @@ function Airdrop() {
                     {...register('telegramUsername', { required: true })}
                   />
                   {errors.telegramUsername && (
-                    <span>This field is required</span>
+                    <span className="errorMsg">
+                      Telegram username is required
+                    </span>
                   )}
                 </div>
                 <div className="form-group">
@@ -161,7 +165,9 @@ function Airdrop() {
                     placeholder="Your Solana address"
                     {...register('walletAddress', { required: true })}
                   />
-                  {errors.walletAddress && <span>This field is required</span>}
+                  {errors.walletAddress && (
+                    <span className="errorMsg">Solana address is required</span>
+                  )}
                 </div>
                 <div className="form-group">
                   <button
@@ -194,8 +200,13 @@ function Airdrop() {
           {userData && (
             <div className="user-info">
               <h3>User Info</h3>
-              <p>Wallet Address:
-                <span style={{fontSize: "0.82rem"}}> {userData.walletAddress}</span> </p>
+              <p>
+                Wallet Address:
+                <span style={{ fontSize: '0.82rem' }}>
+                  {' '}
+                  {userData.walletAddress}
+                </span>{' '}
+              </p>
               <p>Balance: {userData.balance}</p>
               <p>Referral Count: {userData.referralCount}</p>
               <p>
