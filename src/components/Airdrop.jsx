@@ -3,7 +3,7 @@ import { startCountdown } from '../util/landing';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const api = 'http://localhost:3000/v1';
+const api = 'https://g3ek59wvea.execute-api.us-east-1.amazonaws.com/v1';
 const url = 'http://localhost:3001';
 
 function Airdrop() {
@@ -20,14 +20,12 @@ function Airdrop() {
       const urlParams = new URLSearchParams(window.location.search);
       const referralCode = urlParams.get('ref');
 
-      console.log(referralCode);
       // Pass referral code as uplineId in the form data if it exists
       if (referralCode) {
         formData.uplineId = referralCode;
       }
 
       const res = await axios.post(`${api}/users`, formData);
-      console.log(res);
       // Save wallet address to cookies
       document.cookie = `walletAddress=${formData.walletAddress}; expires=Sun, 23 Mar 2024 12:00:00 UTC; path=/`;
       alert(
@@ -196,7 +194,8 @@ function Airdrop() {
           {userData && (
             <div className="user-info">
               <h3>User Info</h3>
-              <p>Wallet Address: {userData.walletAddress}</p>
+              <p>Wallet Address:
+                <span style={{fontSize: "0.82rem"}}> {userData.walletAddress}</span> </p>
               <p>Balance: {userData.balance}</p>
               <p>Referral Count: {userData.referralCount}</p>
               <p>
