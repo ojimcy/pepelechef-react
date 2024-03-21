@@ -457,6 +457,10 @@ footer {
   margin-bottom: 25px;
 }
 
+.modal-body {
+  color: #091707;
+}
+
 /* Define mobile viewport */
 @media only screen and (max-width: 768px) {
   .container {

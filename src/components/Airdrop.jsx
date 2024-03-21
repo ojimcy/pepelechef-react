@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { startCountdown } from '../util/landing';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { Button, Modal } from 'react-bootstrap';
 
 const api = 'https://g3ek59wvea.execute-api.us-east-1.amazonaws.com/v1';
 const url = 'https://pepelechef.fun';
@@ -13,6 +15,8 @@ function Airdrop() {
     formState: { errors },
   } = useForm();
   const [userData, setUserData] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [walletAddress, setWalletAddress] = useState('');
 
   const onSubmit = async (formData) => {
     try {
@@ -81,6 +85,24 @@ function Airdrop() {
   useEffect(() => {
     startCountdown();
   }, []);
+
+  const handleLogin = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowLoginModal(false);
+  };
+
+  const handleWalletAddressChange = (e) => {
+    setWalletAddress(e.target.value);
+  };
+
+  const handleLoginSubmit = async () => {
+    const res = await fetchUserData(walletAddress);
+    console.log(res);
+    setShowLoginModal(false);
+  };
 
   return (
     <section id="airdrop">
@@ -178,7 +200,12 @@ function Airdrop() {
                   </button>
                 </div>
               </form>
-              <div className="airdrop-info">
+              
+              <a href="#" className="mb-1" onClick={handleLogin}>
+                Already have an account? Login
+              </a>
+
+              <div className="airdrop-info mt-2">
                 <p>
                   1. Share your referral link and earn 50,000 PCHEF tokens per
                   referral with no limit!
@@ -195,6 +222,29 @@ function Airdrop() {
               </div>
             </>
           )}
+
+          {/* Bootstrap Modal */}
+          <Modal show={showLoginModal} onHide={handleCloseModal}>
+            <Modal.Body>
+              <form onSubmit={handleLoginSubmit}>
+                <div className="form-group">
+                  <label htmlFor="walletAddress">Wallet Address:</label>
+                  <input
+                    type="text"
+                    id="walletAddress"
+                    name="walletAddress"
+                    value={walletAddress}
+                    onChange={handleWalletAddressChange}
+                    required
+                    className="form-control"
+                  />
+                </div>
+                <Button className="mt-3" variant="primary" type="submit">
+                  Login
+                </Button>
+              </form>
+            </Modal.Body>
+          </Modal>
 
           {/* User data section */}
           {userData && (
@@ -219,6 +269,34 @@ function Airdrop() {
                   {`${url}?ref=${userData.referralCode}`}
                 </a>
               </p>
+            </div>
+          )}
+
+          {/* Login Modal */}
+          {showLoginModal && (
+            <div className="modal">
+              <div className="modal-content">
+                <span className="close" onClick={handleCloseModal}>
+                  &times;
+                </span>
+                <h2>Login with Wallet Address</h2>
+                <form onSubmit={handleLoginSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="walletAddress">Wallet Address:</label>
+                    <input
+                      type="text"
+                      id="walletAddress"
+                      name="walletAddress"
+                      value={walletAddress}
+                      onChange={handleWalletAddressChange}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    Login
+                  </button>
+                </form>
+              </div>
             </div>
           )}
         </div>

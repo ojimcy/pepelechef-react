@@ -31,7 +31,7 @@ export function showNotification() {
 }
 
 export function startCountdown() {
-  const countdownDate = new Date('2024-03-21T23:59:59').getTime();
+  const countdownDate = new Date('2024-03-24T19:00:00').getTime();
 
   const countdown = setInterval(() => {
     const now = new Date().getTime();
@@ -46,7 +46,7 @@ export function startCountdown() {
 
     const countdownElement = document.getElementById('countdown');
     if (countdownElement) {
-      countdownElement.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+      countdownElement.innerHTML = `${days} Day ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
     }
 
     if (distance < 0) {

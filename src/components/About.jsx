@@ -22,13 +22,13 @@ function About() {
             </div>
             <div className="col-md-6 col-12">
               <div className="about-text">
-                <p>
+                {/* <p>
                   Token :{' '}
                   <span className="token" onClick={copyToken}>
                     2MtpcP2NpriS3v8xYVHg1fYfcLbWHSD5KP73EGuyyMKo
                     <i className="fas fa-copy copy-icon"></i>
                   </span>
-                </p>
+                </p> */}
                 <p>
                   In the bustling kitchens of the internet, Pepe the Frog grew
                   weary of his existence as just a meme. Yearning for greater
@@ -55,7 +55,7 @@ function About() {
                   Join us in our mission to create a decentralized and
                   meme-powered ecosystem!
                 </p>
-                <div className="button-container">
+                {/* <div className="button-container">
                   <a
                     target="_blank"
                     href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=2MtpcP2NpriS3v8xYVHg1fYfcLbWHSD5KP73EGuyyMKo&outputSymbol=2MtpcP&fixed=in"
@@ -72,7 +72,7 @@ function About() {
                   >
                     <i className="fas fa-chart-line"></i> Chart
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
