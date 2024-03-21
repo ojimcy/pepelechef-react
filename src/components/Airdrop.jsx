@@ -30,8 +30,8 @@ function Airdrop() {
       }
 
       const res = await axios.post(`${api}/users`, formData);
-      // Save wallet address to cookies
-      document.cookie = `walletAddress=${formData.walletAddress}; expires=Sun, 23 Mar 2024 12:00:00 UTC; path=/`;
+      // Save wallet address to localStorage
+      localStorage.setItem('walletAddress', formData.walletAddress);
       alert(
         'You have successfully joined the airdrop! Share your referral link to earn rewards.'
       );
@@ -63,24 +63,13 @@ function Airdrop() {
   };
 
   useEffect(() => {
-    // Check if wallet address exists in cookies
-    const walletAddressFromCookie = getCookie('walletAddress');
-    if (walletAddressFromCookie) {
-      // Wallet address exists in cookies, fetch user data
-      fetchUserData(walletAddressFromCookie);
+    // Check if wallet address exists in localStorage
+    const walletAddressFromLocalStorage = localStorage.getItem('walletAddress');
+    if (walletAddressFromLocalStorage) {
+      // Wallet address exists in localStorage, fetch user data
+      fetchUserData(walletAddressFromLocalStorage);
     }
   }, []);
-
-  const getCookie = (name) => {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-      const [cookieName, cookieValue] = cookie.split('=');
-      if (cookieName.trim() === name) {
-        return cookieValue;
-      }
-    }
-    return null;
-  };
 
   useEffect(() => {
     startCountdown();
@@ -99,10 +88,19 @@ function Airdrop() {
   };
 
   const handleLoginSubmit = async () => {
+    // Check if wallet address exists in localStorage
+    const walletAddressFromLocalStorage = localStorage.getItem('walletAddress');
+    
+    if (!walletAddressFromLocalStorage) {
+      // Wallet address not found in localStorage, set it
+      localStorage.setItem('walletAddress', walletAddress);
+    }
+    
+    // Fetch user data
     const res = await fetchUserData(walletAddress);
-    console.log(res);
     setShowLoginModal(false);
   };
+  
 
   return (
     <section id="airdrop">
@@ -200,7 +198,7 @@ function Airdrop() {
                   </button>
                 </div>
               </form>
-              
+
               <a href="#" className="mb-1" onClick={handleLogin}>
                 Already have an account? Login
               </a>
